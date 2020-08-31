@@ -10,6 +10,11 @@ TOKEN = os.getenv('TOKEN')
 
 bot = commands.Bot(command_prefix='k')
 
+"""
+def create_track(trackerID, trackerU, trackedID, trackedU):
+    data = load_json("data.json")
+    dat
+"""
 
 
 
@@ -41,25 +46,24 @@ async def on_member_update(before, after):
     if str(after.id) in data and data[str(after.id)]["notify"] == "True":
         
         print("In data")
-        print(int(data[str(after.id)]["trackedByID"]))
-
-        member = await bot.fetch_user(int(data[str(after.id)]["trackedByID"]))
-        await member.create_dm()
-        await member.dm_channel.send("{} has gone {}.".format(after,after.status))
+        print(data[str(after.id)]["trackedByID"])
         
-        print("sent message to {}".format(data[str(after.id)]["trackedByUser"]))
+        for i in range(len(data[str(after.id)]["trackedByID"])):
+            
+            member = await bot.fetch_user(int(data[str(after.id)]["trackedByID"][i]))
+            await member.create_dm()
+            await member.dm_channel.send("{} has gone {}.".format(after,after.status))
+            
+            print("sent message to {} about {}".format(data[str(after.id)]["trackedByUser"], data[str(after.id)]["trackedByUser"][i]))
         
 
 
 
 
-@bot.command(name='track', help='Starts tracking a person of your choice')
-async def track(ctx):
+@bot.command(name='track', help='Starts tracking a person of your choice. e.g. ktrack @Kopamed')
+async def track(ctx, tag):
     
-    print(ctx.author.avatar_url)
-    response = ctx.guild.members
-    await ctx.send(response)
-    await ctx.send(ctx.author.avatar_url)
+    print(tag[3:-1])
     
     
 

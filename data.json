@@ -1,1 +1,34 @@
-{"619621027873423360": {"trackedByID":"448173528236425216", "trackedByUser": "Kopamed#9408", "username": "Trainer Ash#1234", "notify": "True"}, "448173528236425216": {"trackedByID":"619621027873423360", "trackedByUser": "Ash Trainer#1234", "username": "Kopamed#9408", "notify": "False"}, "749989132763136021":{"trackedByID":"448173528236425216", "trackedByUser": "Kopamed#9408", "username": "Trainer Ash#1234", "notify": "True"}}
+{
+    "619621027873423360":
+        {"trackedByID":["448173528236425216"],
+        "trackedByUser": ["Kopamed#9408"],
+        "username": "Trainer Ash#9871",
+        "notify": "True",
+        "premium": "False",
+        "notifySelf":"False"},
+        
+    "448173528236425216":
+        {"trackedByID":["619621027873423360"],
+        "trackedByUser": ["Trainer Ash#9871"],
+        "username": "Kopamed#9408",
+        "notify": "False",
+        "premium": "False",
+        "notifySelf":"False"},
+        
+    "749989132763136021":
+        {"trackedByID":["448173528236425216", "619621027873423360"],
+        "trackedByUser": ["Kopamed#9408", "Trainer Ash#9871"],
+        "username": "Track Bot#4039",
+        "notify": "True",
+        "premium": "False",
+        "notifySelf":"False"},
+        
+    "695174883977723934":
+        {"trackedByID":["448173528236425216"],
+        "trackedByUser": ["Kopamed#9408"],
+        "username": "Osoko#8024",
+        "notify": "True",
+        "premium": "False",
+        "notifySelf":"False"}
+
+}
