@@ -59,7 +59,7 @@ async def on_member_update(before, after):
     
     data = load_json("data.json")
     
-    print(f"{after} has gone {after.status}")
+    
     
     if str(after.id) in data and data[str(after.id)]["previous"] != str(after.status[0]):
         
