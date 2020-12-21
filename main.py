@@ -4,11 +4,11 @@ import asyncio
 import json
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
 import datetime
 
-with open(".gitignore/token", "r") as f:
-    TOKEN = f.read()
-
+load_dotenv()
+TOKEN = os.getenv('TOKEN')
 
 bot = commands.Bot(command_prefix='t.', case_insensitive=False)
 
