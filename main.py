@@ -4,13 +4,13 @@ import asyncio
 import json
 import discord
 from discord.ext import commands
-from dotenv import load_dotenv
 import datetime
 
-load_dotenv()
-TOKEN = os.getenv('TOKEN')
+with open(".gitignore/token", "r") as f:
+    TOKEN = f.read()
 
-bot = commands.Bot(command_prefix='k!', case_insensitive=False)
+
+bot = commands.Bot(command_prefix='t.', case_insensitive=False)
 
 """
 def create_track(trackerID, trackerU, trackedID, trackedU):
@@ -30,7 +30,7 @@ def load_json(file_name):
 
 def dump_json(file_name, data):
     with open(file_name, "w") as write_file:
-        json.dump(data, write_file)
+        json.dump(data, write_file, indent = 4)
 
 
 
@@ -47,7 +47,7 @@ async def servercount():
         
         await bot.change_presence(
             activity=discord.Game(
-                name=f"k!help for {count} users", type=1))
+                name=f"t.help for {count} users", type=1))
 
         await asyncio.sleep(60)
 
@@ -106,7 +106,7 @@ async def on_member_update(before, after):
 
 
 
-@bot.command(name='track', help='Starts tracking a person of your choice. e.g. k!track @Kopamed')
+@bot.command(name='track', help='Starts tracking a person of your choice. e.g. t.track @Kopamed')
 async def track(ctx, tag):
     
     data = load_json("data.json")
@@ -172,7 +172,7 @@ async def track(ctx, tag):
     
     
     
-@bot.command(name='wait', help='1 time notification of when a user goes ____. e.g. k!wait @Kopamed online | available options: offline, online, dnd, idle')
+@bot.command(name='wait', help='1 time notification of when a user goes ____. e.g. t.wait @Kopamed online | available options: offline, online, dnd, idle')
 async def track(ctx, tag, state):
     
   
@@ -182,7 +182,7 @@ async def track(ctx, tag, state):
     
     
     
-@bot.command(name='notify', help='You can choose what status notifies you. FOr example you only want to get notified when your friend goes offline and not online. e.g. k!notify online true | available options: offline, online, dnd, idle, settings | available states: off, on')
+@bot.command(name='notify', help='You can choose what status notifies you. FOr example you only want to get notified when your friend goes offline and not online. e.g. t.notify online true | available options: offline, online, dnd, idle, settings | available states: off, on')
 async def track(ctx, status, option):
     
     statuses = ["online", "offline", "dnd", "idle", "settings"]
@@ -203,7 +203,7 @@ async def track(ctx, status, option):
 
 
 
-@bot.command(name='traceback', help='Shows you who is tracking you. e.g. k!traceback')
+@bot.command(name='traceback', help='Shows you who is tracking you. e.g. t.traceback')
 async def traceback(ctx):
     
     data = load_json("data.json")
@@ -267,7 +267,7 @@ async def traceback(ctx):
 
 
 
-@bot.command(name='lose', help='Stops tracking a person of your choice. e.g. k!lose @Kopamed')
+@bot.command(name='lose', help='Stops tracking a person of your choice. e.g. t.lose @Kopamed')
 async def lose(ctx, tag):
     
     data = load_json("data.json")
